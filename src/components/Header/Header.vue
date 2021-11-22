@@ -1,7 +1,7 @@
 <template>
     <header id="header">
         <Container>
-            <div id="content">
+            <div id="header-content">
                 <img
                     :src="require('../../assets/logo.svg')"
                     alt="Logo"
@@ -18,6 +18,11 @@
                                 {{ item.name }}
                             </a>
                         </li>
+                        <li class="item">
+                            <Button>
+                                VIEW PLANS
+                            </Button>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -27,11 +32,13 @@
 
 <script>
     import Container from '../Container/Container.vue';
+    import Button from '../Button/Button.vue';
 
     export default {
         name: "Header",
         components: {
-            Container
+            Container,
+            Button
         },
         data() {
             return {
@@ -47,10 +54,6 @@
                     {
                         id: 3,
                         name: "ACCOUNT",
-                    },
-                    {
-                        id: 4,
-                        name: "VIEW PLANS",
                     }
                 ]
             }
@@ -65,10 +68,14 @@
         justify-content: center;
 
         height: 80px;
+
+        z-index: 1;
+
+        background-color: white;
     }
 
     #header,
-    #content,
+    #header-content,
     #list
     {
         display: flex;
@@ -76,13 +83,13 @@
     }
 
     #header,
-    #content
+    #header-content
     {
         
         width: 100%;
     }
 
-    #content {
+    #header-content {
         height: 100%;
 
         justify-content: space-between;
