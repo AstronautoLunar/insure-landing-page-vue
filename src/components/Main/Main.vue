@@ -6,8 +6,7 @@
         >
             <Container>
                 <div id="presentation-content-secure">
-                    <div id="line">
-                    </div>
+                    <Line/>
                     <h1 id="title">
                         Humanizing your insurance
                     </h1>
@@ -38,7 +37,15 @@
 
         <Container>
             <div id="main-secure-content">
+                <section 
+                    id="" 
+                    class="section"
+                >
+                    <Line
+                        color="var(--very-dark-violet)"
+                    />
 
+                </section>
             </div>
         </Container>
     </main>
@@ -47,12 +54,14 @@
 <script>
     import Container from "../Container/Container.vue";
     import Button from "../Button/Button.vue";
+    import Line from "../Line/Line.vue";
 
     export default {
         name: "Main",
         components: {
             Container,
-            Button
+            Button,
+            Line
         },
         data() {
             return {
@@ -97,6 +106,7 @@
 
     #presentation {
         padding: 100px 0;
+        margin-bottom: 100px;
 
         background-color: var(--dark-violet);
 
@@ -113,15 +123,6 @@
 
     #presentation-content-secure {
         position: relative;
-    }
-
-    #line {
-        width: 125px;
-        height: 2px;
-
-        background-color: var(--very-light-gray);
-
-        opacity: 0.2;
     }
 
     #title {
