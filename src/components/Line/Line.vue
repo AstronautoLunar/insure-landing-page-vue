@@ -2,7 +2,8 @@
     <div 
         class="line"
         :style="{
-            backgroundColor: color
+            backgroundColor: color,
+            width: isFullWidth ? '100%' : '125px'
         }"
     >
     </div>
@@ -19,6 +20,11 @@
             color: {
                 type: String,
                 required: false
+            },
+            isFullWidth: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         }
     }
@@ -28,7 +34,6 @@
 <style scoped>
 
     .line {
-        width: 125px;
         height: 2px;
 
         background-color: var(--very-light-gray);
