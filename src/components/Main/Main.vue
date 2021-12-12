@@ -35,7 +35,7 @@
             />
         </section>
 
-        <Container>
+        <Container identifier="body-container">
             <div id="main-secure-content">
                 <section 
                     id="section-benefits" 
@@ -61,6 +61,10 @@
                     </div>
                 </section>
             </div>
+
+            <AreaInvitation>
+                Find out more about how we work
+            </Areainvitation>
         </Container>
     </main>
 </template>
@@ -70,6 +74,7 @@
     import Button from "../Button/Button.vue";
     import Line from "../Line/Line.vue";
     import CardBenefits from "../CardBenefits/CardBenefits.vue";
+    import AreaInvitation from "../AreaInvitation/AreaInvitation.vue";
 
     export default {
         name: "Main",
@@ -77,7 +82,8 @@
             Container,
             Button,
             Line,
-            CardBenefits
+            CardBenefits,
+            AreaInvitation
         },
         data() {
             return {
@@ -231,6 +237,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    #body-container {
+        flex-direction: column;
     }
 
 </style>

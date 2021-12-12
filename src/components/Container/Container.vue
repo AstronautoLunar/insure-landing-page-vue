@@ -1,5 +1,8 @@
 <template>
-    <div id="container">
+    <div
+        :id="identifier"
+        class="container"
+    >
         <slot>
 
         </slot>
@@ -12,6 +15,12 @@
         name: "Container",
         components: {
 
+        },
+        props: {
+            identifier: {
+                type: String,
+                require: false
+            }
         }
     }
 
@@ -19,7 +28,7 @@
 
 <style scoped>
 
-    #container {
+    .container {
         width: 80%;
         height: 100%;
 
