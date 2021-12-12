@@ -213,7 +213,10 @@
 
     #title-section-benefits {
         font-size: 3rem;
-        /* font-family:  */
+        font-family: "DM Serif Display", Helvetica, sans-serif;
+        
+        margin-top: 24px;
+        margin-bottom: 40px;
     }
 
     #section-benefits

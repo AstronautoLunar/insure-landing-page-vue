@@ -3,16 +3,14 @@
         <div 
             class="benefit-card"
         >
-            <div class="circle-icon">
-                <img
-                    :src="icon"
-                    :alt="`Image ${ title }`"
-                />
-            </div>
-            <h1>
+            <img
+                :src="icon"
+                :alt="`Image ${ title }`"
+            />
+            <h1 class="title">
                 {{ title }}
             </h1>
-            <span>
+            <span class="description">
                 <slot>
 
                 </slot>
@@ -43,22 +41,27 @@
 </script>
 
 <style scoped>
-    .benefit-card
+    .CardBenefits
     {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+
+        max-width: 31%;
     }
 
-    /* .benefit-card {
-        flex: 1;
+    .title {
+        margin-top: 24px;
+        margin-bottoM: 16px;
         
-        margin-right: 20px;
+        font-family: "DM Serif Display", Helvetica, sans-serif;
     }
 
-    .benefit-card:last-of-type {
-        margin-right: 0;
-    } */
+    .description {
+        font-family: Karla, Helvetica, sans-serif;
+        font-weight: bold;
 
+        color: var(--dark-grayish-violet);
+    }
 </style>
