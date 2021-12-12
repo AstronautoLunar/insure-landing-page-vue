@@ -6,6 +6,7 @@
         }"
     >
         <span
+            class="text"
             :style="{
                 color,
             }"
@@ -46,6 +47,12 @@
         border-width: 2px;
         border-style: solid;
         border-color: var(--very-dark-violet);
+    }
+
+    .text {
+        font-weight: 700;
+        font-family: Karla, Helvetica, sans-serif;
+        font-size: 1rem;
     }
 
 </style>

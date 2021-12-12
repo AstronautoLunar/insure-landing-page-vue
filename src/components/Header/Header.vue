@@ -106,9 +106,13 @@
     .item > a {
         text-decoration: none;
 
+        color: var(--dark-grayish-violet);
+
         padding: 10px 30px;
         
         font-size: 15px;
+        font-family: Karla, Helvetica, sans-serif;
+        font-weight: 700;
     }
 
     .item:last-of-type > a {

@@ -38,13 +38,27 @@
         <Container>
             <div id="main-secure-content">
                 <section 
-                    id="" 
+                    id="section-benefits" 
                     class="section"
                 >
                     <Line
                         color="var(--very-dark-violet)"
                     />
 
+                    <h1 id="title-section-benefits">
+                        We're different
+                    </h1>
+
+                    <div id="area-benefits-cards">
+                        <CardBenefits
+                            v-for="item in benefitsCards"
+                            :key="item.id"
+                            :icon="item.icon"
+                            :title="item.title"
+                        >
+                            {{ item.description }}
+                        </CardBenefits>
+                    </div>
                 </section>
             </div>
         </Container>
@@ -55,13 +69,15 @@
     import Container from "../Container/Container.vue";
     import Button from "../Button/Button.vue";
     import Line from "../Line/Line.vue";
+    import CardBenefits from "../CardBenefits/CardBenefits.vue";
 
     export default {
         name: "Main",
         components: {
             Container,
             Button,
-            Line
+            Line,
+            CardBenefits
         },
         data() {
             return {
@@ -78,6 +94,26 @@
                         source: require('../../assets/bg-pattern-intro-left-desktop.svg'),
                         alt: "line circle"
                     },
+                ],
+                benefitsCards: [
+                    {
+                        id: 1,
+                        icon: require('../../assets/icon-snappy-process.svg'),
+                        title: "Snappy Process",
+                        description: "Our application process can be completed in minutes, not hours. Don't get stuck filling in tedios forms"
+                    },
+                    {
+                        id: 2,
+                        icon: require('../../assets/icon-affordable-prices.svg'),
+                        title: "Affordable Prices",
+                        description: "We don't want you worrying about high monthly costs. Our prices may be low, but we still offer the best coverage possible."
+                    },
+                    {
+                        id: 3,
+                        icon: require('../../assets/icon-people-first.svg'),
+                        title: "People First",
+                        description: "Our plans aren't full of confitions and clauses to prevent payouts. We make sure you're covered when you need it."
+                    }
                 ]
             }
         }
@@ -99,14 +135,16 @@
     .section,
     #presentation,
     #main,
-    #presentation-content-secure
+    #presentation-content-secure,
+    #main-secure-content,
+    .area-benefits-cards
     {
         width: 100%;
     }
 
     #presentation {
         padding: 100px 0;
-        margin-bottom: 100px;
+        margin-bottom: 200px;
 
         background-color: var(--dark-violet);
 
@@ -172,4 +210,24 @@
         left: 0;
         bottom: -300px;
     }
+
+    #title-section-benefits {
+        font-size: 3rem;
+        /* font-family:  */
+    }
+
+    #section-benefits
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #area-benefits-cards {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 </style>
