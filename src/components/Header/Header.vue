@@ -19,7 +19,10 @@
                             </a>
                         </li>
                         <li class="item">
-                            <Button>
+                            <Button
+                                color="var(--very-dark-violet)"
+                                colorTextBackgroundOn="var(--very-light-gray)"
+                            >
                                 VIEW PLANS
                             </Button>
                         </li>

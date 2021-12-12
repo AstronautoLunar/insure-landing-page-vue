@@ -1,14 +1,17 @@
 <template>
     <button 
-        class="custom-button"
+        :class="`custom-button ${isTransition ? 'transition' : ''}`"
         :style="{
-            borderColor: color
+            borderColor: color,
+            background: isBackground ? color : ''
         }"
+        @mouseenter="changeBackground(true)"
+        @mouseleave="changeBackground(false)"
     >
         <span
             class="text"
             :style="{
-                color,
+                color: isBackground ? colorTextBackgroundOn : color
             }"
         >
             <slot>
@@ -29,6 +32,25 @@
             color: {
                 type: String,
                 required: false
+            },
+            isTransition: {
+                type: Boolean,
+                required: false,
+                default: true
+            },
+            colorTextBackgroundOn: {
+                type: String,
+                required: true,
+            }
+        },
+        data() {
+            return {
+                isBackground: false
+            }
+        },
+        methods: {
+            changeBackground(value) {
+                this.isBackground = value;
             }
         }
     }
@@ -53,6 +75,10 @@
         font-weight: 700;
         font-family: Karla, Helvetica, sans-serif;
         font-size: 1rem;
+    }
+
+    .transition {
+        transition: background-color 500ms;
     }
 
 </style>

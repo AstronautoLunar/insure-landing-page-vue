@@ -15,6 +15,7 @@
                     </p>
                     <Button
                         color="var(--very-light-gray)"
+                        colorTextBackgroundOn="var(--very-dark-violet)"
                     >
                         VIEW PLANS
                     </Button>
@@ -215,6 +216,8 @@
     #left {
         left: 0;
         bottom: -300px;
+
+        z-index: -1;
     }
 
     #title-section-benefits {
