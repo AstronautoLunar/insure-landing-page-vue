@@ -8,6 +8,7 @@
 
         <Button
             color="var(--very-light-gray)"
+            colorTextBackgroundOn="var(--very-dark-violet)"
         >
             HOW WE WORK
         </Button>

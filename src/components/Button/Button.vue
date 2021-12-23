@@ -3,7 +3,7 @@
         :class="`custom-button ${isTransition ? 'transition' : ''}`"
         :style="{
             borderColor: color,
-            background: isBackground ? color : ''
+            background: isBackground ? color : 'transparent'
         }"
         @mouseenter="changeBackground(true)"
         @mouseleave="changeBackground(false)"
@@ -51,6 +51,8 @@
         methods: {
             changeBackground(value) {
                 this.isBackground = value;
+
+                console.log(this.isBackground);
             }
         }
     }
