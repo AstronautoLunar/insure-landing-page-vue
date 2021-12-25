@@ -155,7 +155,7 @@
 
         background-color: var(--dark-violet);
 
-        z-index: -2;
+        z-index: 1;
 
         position: relative;
     }

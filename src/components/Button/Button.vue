@@ -51,8 +51,6 @@
         methods: {
             changeBackground(value) {
                 this.isBackground = value;
-
-                console.log(this.isBackground);
             }
         }
     }
