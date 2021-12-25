@@ -7,7 +7,14 @@
                     alt="Logo"
                 />
 
-                <nav id="navBar">
+                <MenuMobile
+                    :isVisible="showMenuMobile"
+                />
+
+                <nav 
+                    id="navBar"
+                    v-show="!showMenuMobile"
+                >
                     <ul id="list">
                         <li 
                             class="item"
@@ -36,12 +43,14 @@
 <script>
     import Container from '../Container/Container.vue';
     import Button from '../Button/Button.vue';
+    import MenuMobile from '../MenuMobile/MenuMobile.vue';
 
     export default {
         name: "Header",
         components: {
             Container,
-            Button
+            Button,
+            MenuMobile
         },
         data() {
             return {
@@ -58,8 +67,27 @@
                         id: 3,
                         name: "ACCOUNT",
                     }
-                ]
+                ],
+                mediaQuerieList: matchMedia("(max-width: 842px)"),
+                showMenuMobile: false
             }
+        },
+        methods: {
+            toggleModeMobile(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.showMenuMobile = true;
+                } else {
+                    this.showMenuMobile = false
+                }
+            }
+        },
+        mounted() {
+            this.toggleModeMobile(this.mediaQuerieList);
+
+            this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
+        },
+        updated() {
+            this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
         }
     }
 
