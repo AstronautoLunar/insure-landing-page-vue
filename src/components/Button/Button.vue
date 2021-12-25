@@ -3,7 +3,7 @@
         :class="`custom-button ${isTransition ? 'transition' : ''}`"
         :style="{
             borderColor: color,
-            background: isBackground ? color : 'transparent'
+            backgroundColor: isBackground ? color : 'transparent'
         }"
         @mouseenter="changeBackground(true)"
         @mouseleave="changeBackground(false)"
@@ -65,6 +65,8 @@
         background-color: transparent;
         outline: none;
         box-shadow: none;
+
+        z-index: 1000;
 
         padding: 10px 30px;
 
