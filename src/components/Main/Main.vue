@@ -129,21 +129,51 @@
             }
         },
         methods: {
-            showLinePresentation(mediaQuerieList) {
+            toggleModeMobile(mediaQuerieList) {
                 if(mediaQuerieList.matches) {
                     this.showLine = false;
+
+                    this.imagesSectionPresentation = [
+                        {
+                            id: 1,
+                            position: "right",
+                            source: require('../../assets/bg-pattern-intro-right-mobile.svg'),
+                            alt: "line circle"
+                        },
+                        {
+                            id: 2,
+                            position: "left",
+                            source: require('../../assets/bg-pattern-intro-left-mobile.svg'),
+                            alt: "line circle"
+                        },
+                    ]
                 } else {
                     this.showLine = true;
+
+                    this.imagesSectionPresentation = [
+                        {
+                            id: 1,
+                            position: "right",
+                            source: require('../../assets/bg-pattern-intro-right-desktop.svg'),
+                            alt: "line circle"
+                        },
+                        {
+                            id: 2,
+                            position: "left",
+                            source: require('../../assets/bg-pattern-intro-left-desktop.svg'),
+                            alt: "line circle"
+                        },
+                    ]
                 }
             }
         },
         mounted() {
-            this.showLinePresentation(this.mediaQuerieListLine);
+            this.toggleModeMobile(this.mediaQuerieListLine);
 
-            this.mediaQuerieListLine.addEventListener("change", this.showLinePresentation);
+            this.mediaQuerieListLine.addEventListener("change", this.toggleModeMobile);
         },
         updated() {
-            this.mediaQuerieListLine.addEventListener("change", this.showLinePresentation);
+            this.mediaQuerieListLine.addEventListener("change", this.toggleModeMobile);
         }
     }
 
@@ -318,7 +348,10 @@
             width: auto;
         }
 
-
+        #right {
+            top: auto;
+            bottom: -480px;
+        }
     }
 
 </style>
