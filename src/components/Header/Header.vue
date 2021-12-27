@@ -3,12 +3,14 @@
         <Container>
             <div id="header-content">
                 <img
+                    id="logo"
                     :src="require('../../assets/logo.svg')"
                     alt="Logo"
                 />
 
                 <MenuMobile
                     :isVisible="showMenuMobile"
+                    id="menuMobile"
                 />
 
                 <nav 
@@ -150,6 +152,16 @@
         border: 2px solid var(--very-dark-violet);
 
         font-weight: bold;
+    }
+
+    @media screen and (max-width: 562px) {
+        #logo {
+            margin-left: 25px;
+        }
+        
+        #menuMobile {
+            margin-right: 25px;
+        }
     }
 
 </style>

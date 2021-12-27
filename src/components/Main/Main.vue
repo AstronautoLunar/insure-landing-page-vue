@@ -6,19 +6,21 @@
         >
             <Container>
                 <div id="presentation-content-secure">
-                    <Line/>
-                    <h1 id="title">
-                        Humanizing your insurance
-                    </h1>
-                    <p id="description">
-                        Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that's right for you. Ensure you and your loved ones are protected.
-                    </p>
-                    <Button
-                        color="var(--very-light-gray)"
-                        colorTextBackgroundOn="var(--very-dark-violet)"
-                    >
-                        VIEW PLANS
-                    </Button>
+                    <article id="article-content-secure">
+                        <Line v-show="showLine"/>
+                        <h1 id="title">
+                            Humanizing your insurance
+                        </h1>
+                        <p id="description">
+                            Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that's right for you. Ensure you and your loved ones are protected.
+                        </p>
+                        <Button
+                            color="var(--very-light-gray)"
+                            colorTextBackgroundOn="var(--very-dark-violet)"
+                        >
+                            VIEW PLANS
+                        </Button>
+                    </article>
                     <img
                         id="image-presentation-desktop"
                         :src="require('../../assets/image-intro-desktop.jpg')"
@@ -121,8 +123,27 @@
                         title: "People First",
                         description: "Our plans aren't full of confitions and clauses to prevent payouts. We make sure you're covered when you need it."
                     }
-                ]
+                ],
+                showLine: true,
+                mediaQuerieListLine: matchMedia("(max-width: 562px)")
             }
+        },
+        methods: {
+            showLinePresentation(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.showLine = false;
+                } else {
+                    this.showLine = true;
+                }
+            }
+        },
+        mounted() {
+            this.showLinePresentation(this.mediaQuerieListLine);
+
+            this.mediaQuerieListLine.addEventListener("change", this.showLinePresentation);
+        },
+        updated() {
+            this.mediaQuerieListLine.addEventListener("change", this.showLinePresentation);
         }
     }
 
@@ -196,6 +217,8 @@
         top: 0;
 
         width: 450px;
+
+        transition: opacity 500ms;
     }
 
     #right {
@@ -244,6 +267,58 @@
 
     #body-container {
         flex-direction: column;
+    }
+
+    @media screen and (max-width: 1208px) {
+        #image-presentation-desktop {
+            opacity: 0.3;
+        }
+    }
+
+    @media screen and (max-width: 562px) {
+        #presentation {
+            padding: 0;
+        }
+
+        #presentation-content-secure {
+            flex-direction: column-reverse;
+        }
+
+        #article-content-secure,
+        #presentation-content-secure
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #article-content-secure {
+            flex-direction: column;
+
+            padding: 100px;
+        }
+
+        #article-content-secure > * {
+            text-align: center;
+        }
+
+        #image-presentation-desktop {
+            position: static;
+            
+            opacity: 1;
+
+            width: 100%;
+        }
+
+        #title {
+            margin-top: 0;
+        }
+
+        #description {
+            width: auto;
+        }
+
+
     }
 
 </style>
