@@ -34,6 +34,7 @@
 </script>
 
 <style scoped>
+
     .AreaInvitation {
         width: 100%;
         height: 150px;
@@ -65,4 +66,11 @@
         right: 0;
         transform: translateY(-50%);
     }
+
+    @media screen and (max-width: 562px) {
+        .AreaInvitation {
+            margin: 150px 20px;
+        }
+    }
+
 </style>

@@ -205,4 +205,33 @@
 
         justify-content: space-between;
     }
+
+    @media screen and (max-width: 562px) {
+        #footer {
+            height: auto;
+
+            padding: 100px 0;
+
+            
+        }
+
+        #area-social-media,
+        #sections-of-footer
+        {
+            flex-direction: column;
+        }
+
+        #social-networks {
+            margin-top: 24px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        #footer {
+            background-image: url(../../assets/bg-pattern-footer-mobile.svg);
+            background-repeat: no-repeat;
+        }
+
+    }
+
 </style>

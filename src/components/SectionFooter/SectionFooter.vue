@@ -69,4 +69,22 @@
         margin-bottom: 0;
     }
 
+    @media screen and (max-width: 562px) {
+        .SectionFooter {
+            margin-bottom: 40px;
+
+            align-items: center;
+        }
+
+        .SectionFooter:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .title,
+        .link
+        {
+            text-align: center;
+        }
+    }
+
 </style>

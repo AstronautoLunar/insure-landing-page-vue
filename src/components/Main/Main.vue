@@ -325,7 +325,7 @@
         #article-content-secure {
             flex-direction: column;
 
-            padding: 100px;
+            padding: 10vw;
         }
 
         #article-content-secure > * {
@@ -344,7 +344,9 @@
             margin-top: 0;
         }
 
-        #description {
+        #title,
+        #description
+        {
             width: auto;
         }
 
@@ -358,6 +360,20 @@
         #left {
             top: 450px;
             bottom: auto;
+        }
+
+        #main-secure-content,
+        #AreaInvitation
+        {
+            margin: 0 50px;
+        }
+
+        #section-benefits {
+            align-items: center;
+        }
+
+        #area-benefits-cards {
+            flex-direction: column;
         }
     }
 

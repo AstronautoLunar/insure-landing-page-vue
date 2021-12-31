@@ -1,21 +1,17 @@
 <template>
     <div class="CardBenefits">
-        <div 
-            class="benefit-card"
-        >
-            <img
-                :src="icon"
-                :alt="`Image ${ title }`"
-            />
-            <h1 class="title">
-                {{ title }}
-            </h1>
-            <span class="description">
-                <slot>
+        <img
+            :src="icon"
+            :alt="`Image ${ title }`"
+        />
+        <h1 class="title">
+            {{ title }}
+        </h1>
+        <span class="description">
+            <slot>
 
-                </slot>
-            </span>
-        </div>
+            </slot>
+        </span>
     </div>
 </template>
 
@@ -41,8 +37,8 @@
 </script>
 
 <style scoped>
-    .CardBenefits
-    {
+
+    .CardBenefits {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -64,4 +60,25 @@
 
         color: var(--dark-grayish-violet);
     }
+
+    @media screen and (max-width: 562px) {
+        .CardBenefits {
+            max-width: 100%;
+
+            margin-bottom: 48px;
+
+            align-items: center;
+        }
+
+        .CardBenefits:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .title,
+        .description
+        {
+            text-align: center;
+        }
+    }
+
 </style>
