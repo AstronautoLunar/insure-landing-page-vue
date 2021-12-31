@@ -350,7 +350,14 @@
 
         #right {
             top: auto;
-            bottom: -480px;
+            bottom: -185px;
+
+            width: 125px
+        }
+        
+        #left {
+            top: 450px;
+            bottom: auto;
         }
     }
 
