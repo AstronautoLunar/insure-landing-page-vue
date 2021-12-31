@@ -70,6 +70,17 @@
     @media screen and (max-width: 562px) {
         .AreaInvitation {
             margin: 150px 20px;
+            
+            flex-direction: column;
+
+            height: auto;
+        }
+
+        .illustration-lines {
+            top: 0;
+            right: 0;
+
+            transform: none;
         }
     }
 

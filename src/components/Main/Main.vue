@@ -375,6 +375,10 @@
         #area-benefits-cards {
             flex-direction: column;
         }
+
+        #body-container {
+            padding: 0 20px;
+        }
     }
 
 </style>
