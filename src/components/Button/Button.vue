@@ -1,5 +1,6 @@
 <template>
     <button 
+        :id="identifier"
         :class="`custom-button ${isTransition ? 'transition' : ''}`"
         :style="{
             borderColor: color,
@@ -41,6 +42,10 @@
             colorTextBackgroundOn: {
                 type: String,
                 required: true,
+            },
+            identifier: {
+                type: String,
+                required: false
             }
         },
         data() {
@@ -60,13 +65,15 @@
 <style scoped>
 
     .custom-button {
+        max-width: 300px;
+        min-width: 170px;
         background-color: transparent;
         outline: none;
         box-shadow: none;
 
         z-index: 1000;
 
-        padding: 10px 30px;
+        padding: 10px 20px;
 
         border-width: 2px;
         border-style: solid;
