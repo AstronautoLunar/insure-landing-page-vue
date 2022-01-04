@@ -358,7 +358,7 @@
         }
         
         #left {
-            top: 450px;
+            top: 390px;
             bottom: auto;
         }
 
