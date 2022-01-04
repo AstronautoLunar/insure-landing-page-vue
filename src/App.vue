@@ -1,6 +1,13 @@
 <template>
   <div id="render">
-    <Header/>
+    <Header
+      :showMenuMobile="showMenuMobile"
+      :showNavigation="toggleNavigation"
+      :modeOn="navigation"
+    />
+    <NavBarMobile
+      :show="navigation"
+    />
     <Main/>
     <Footer/>
   </div>
@@ -10,13 +17,42 @@
   import Header from "./components/Header/Header.vue";
   import Main from "./components/Main/Main.vue";
   import Footer from "./components/Footer/Footer.vue";
+  import NavBarMobile from "./components/NavBarMobile/NavBarMobile.vue";
 
   export default {
     name: 'App',
     components: {
       Header,
       Main,
-      Footer
+      Footer,
+      NavBarMobile
+    },
+    data() {
+      return {
+        mediaQuerieList: matchMedia("(max-width: 842px)"),
+        showMenuMobile: false,
+        navigation: false
+      }
+    },
+    methods: {
+      toggleModeMobile(mediaQuerieList) {
+        if(mediaQuerieList.matches) {
+            this.showMenuMobile = true;
+        } else {
+            this.showMenuMobile = false
+        }
+      },
+      toggleNavigation() {
+        this.navigation = !this.navigation;
+      }
+    },
+    mounted() {
+      this.toggleModeMobile(this.mediaQuerieList);
+
+      this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
+    },
+    updated() {
+      this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
     }
   }
 

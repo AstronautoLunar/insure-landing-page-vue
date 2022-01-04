@@ -8,9 +8,11 @@
                     alt="Logo"
                 />
 
-                <MenuMobile
+                <ButtonMenuMobile
+                    @showNavigation="showNavigation"
                     :isVisible="showMenuMobile"
-                    id="menuMobile"
+                    id="ButtonMenuMobile"
+                    :modeOn="modeOn"
                 />
 
                 <nav 
@@ -45,14 +47,14 @@
 <script>
     import Container from '../Container/Container.vue';
     import Button from '../Button/Button.vue';
-    import MenuMobile from '../MenuMobile/MenuMobile.vue';
+    import ButtonMenuMobile from '../ButtonMenuMobile/ButtonMenuMobile.vue';
 
     export default {
         name: "Header",
         components: {
             Container,
             Button,
-            MenuMobile
+            ButtonMenuMobile
         },
         data() {
             return {
@@ -70,27 +72,23 @@
                         name: "ACCOUNT",
                     }
                 ],
-                mediaQuerieList: matchMedia("(max-width: 842px)"),
-                showMenuMobile: false
+                
             }
         },
-        methods: {
-            toggleModeMobile(mediaQuerieList) {
-                if(mediaQuerieList.matches) {
-                    this.showMenuMobile = true;
-                } else {
-                    this.showMenuMobile = false
-                }
+        props: {
+            showMenuMobile: {
+                type: Boolean,
+                required: true
+            },
+            showNavigation: {
+                type: Function,
+                required: false
+            },
+            modeOn: {
+                type: Boolean,
+                required: false
             }
         },
-        mounted() {
-            this.toggleModeMobile(this.mediaQuerieList);
-
-            this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
-        },
-        updated() {
-            this.mediaQuerieList.addEventListener("change", this.toggleModeMobile);
-        }
     }
 
 </script>
@@ -159,7 +157,7 @@
             margin-left: 25px;
         }
         
-        #menuMobile {
+        #ButtonMenuMobile {
             margin-right: 25px;
         }
     }
