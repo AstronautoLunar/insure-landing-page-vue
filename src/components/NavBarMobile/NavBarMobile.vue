@@ -75,6 +75,10 @@
         height: 0px;
 
         background-color: var(--dark-violet);
+        background-image: url(../../assets/bg-pattern-mobile-nav.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom right;
 
         overflow: hidden;
 

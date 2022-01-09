@@ -39,7 +39,8 @@
         if(mediaQuerieList.matches) {
             this.showMenuMobile = true;
         } else {
-            this.showMenuMobile = false
+            this.showMenuMobile = false;
+            this.navigation = false;
         }
       },
       toggleNavigation() {
